@@ -24,7 +24,6 @@ app_token='l0AFei7KQOANOi9RpP3XuO3jo'
 with DAG(dag_id='full_load_evictions_pipeline',
         default_args=default_args,
         start_date=datetime(2022,5,4),
-        schedule_interval='@daily',
         catchup=False) as dag:
 
     load_eviction_data_to_gcs=BeamRunPythonPipelineOperator(
