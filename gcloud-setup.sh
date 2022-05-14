@@ -33,5 +33,7 @@ gcloud composer environments update \
   --update-env-variables=AIRFLOW_VAR_PROJECT=$PROJECT_ID
 
 #copy the dags folder from repo to gcs bucket
-wget --no-parent -r 'https://github.com/Padmasaran/nyc-open-data-project/tree/main/dags'
-gsutil 
+wget --no-parent -r 'https://github.com/Padmasaran/nyc-open-data-project/archive/main.zip'
+unzip main.zip
+DAGS_FOLDER=$(gcloud composer environments describe --location=$LOCATION $NAME | grep dagGcsPrefix: | cut -d ":" -f2- | xargs)
+gsutil cp -r nyc-open-data-project-main/dags/ $DAGS_FOLDER
