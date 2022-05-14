@@ -1,6 +1,6 @@
 ### NYC Open data project - Evictions
 
-Goal is to setup a data pipeline to pull data from NYC Socrata Open API (SoDA) and present the analytics via a presentation layer. This architecture is hosted on Google Cloud Platform (GCP) based on open-source frameworks like Apache Airflow and Apache Beam.
+Goal is to setup a data pipeline to pull data from NYC Socrata Open Data API (SODA) and present the analytics via a presentation layer. This architecture is hosted on Google Cloud Platform (GCP) based on open-source frameworks like Apache Airflow and Apache Beam.
 
 For all questions and suggestions, please reach out to me at: padmasaransathiakumar@gmail.com
 
@@ -10,7 +10,7 @@ For all questions and suggestions, please reach out to me at: padmasaransathiaku
 #### Process Flow
 ##### Ingestion (Extract): 
 Data is fetched from SODA API using Apache Beam pipelines on dataflow runner. This setup allows for parallelization of the API pull with a separate thread for every 100000 records.
-Data ingestion allows for both full-load and incremental-load with the same pipeline via parameters.
+Data ingestion allows for both full-load and incremental-load with the same beam script via parameters.
 
 ##### Load:
 Data is loaded into the BigQuery staging layer as-is without any transformations. This is a truncate and load operation.
@@ -41,12 +41,12 @@ GCP setup can be performed by executing the gcloud-setup.sh script in GCP CLI. S
 - Setup Cloud composer (managed Apache Airflow) and required environmental variables
 - Copy the scripts from this repo to the Cloud Composer dags folder
 
-Replace the PROJECT_ID parameter with the your GCP project ID. Once done, GCP environment should be ready to analyse the evictions data ingested and extend this model to other SODA API based data.
+Replace the PROJECT_ID parameter with the your GCP project ID. Once script is executed, GCP environment should be ready to analyse the evictions data ingested and extend this model to other SODA API based data.
 
 #### Infrastructure
 This solution uses serverless and managed offerings of Google Cloud Platform as below:
 - Cloud Dataflow - serverless data processing framework used for data ingestion
 - Cloud Composer - managed Apache Airflow instance used for data orchestration
-- Cloud Storage - serverless object storage
+- Cloud Storage - cloud object storage
 - BigQuery - serverless data warehousing solution with pay-per-use compute
 - Google Data Studio - self service BI tool for data visualization
