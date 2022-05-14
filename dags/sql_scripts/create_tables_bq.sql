@@ -42,7 +42,7 @@ CREATE OR REPLACE TABLE {{ var.value.project }}.eviction_analysis.evictions
   eviction_possession STRING,
   eviction_zip INT64,
   eviction_apt_num STRING,
-  eviction_address STRING
+  eviction_address STRING,
   bbl INT64,
   census_tract INT64,
   nta STRUCT <

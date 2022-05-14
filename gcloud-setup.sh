@@ -21,30 +21,13 @@ bq --location=$LOCATION mk \
 #create GCS buckets
 gsutil mb -l $LOCATION gs://$NAME-$UUID
 
-#create cloud composer instance
+#create cloud composer instance with env variables
 gcloud composer environments create $NAME \
     --location $LOCATION
-
-#add env variables to cloud composer
-gcloud composer environments update \
-  $NAME \
-  --location $LOCATION \
-  --update-env-variables=AIRFLOW_VAR_OUTPUT_BUCKET=$NAME-$UUID
-
-gcloud composer environments update \
-  $NAME \
-  --location $LOCATION \
-  --update-env-variables=AIRFLOW_VAR_PROJECT=$PROJECT_ID
+    --env_variables AIRFLOW_VAR_OUTPUT_BUCKET=$NAME-$UUID,AIRFLOW_VAR_PROJECT=$PROJECT_ID
 
 #copy the dags folder from repo to gcs bucket
 wget --no-parent -r 'https://github.com/Padmasaran/nyc-open-data-project/archive/main.zip'
 unzip main.zip
 DAGS_FOLDER=$(gcloud composer environments describe --location=$LOCATION $NAME | grep dagGcsPrefix: | cut -d ":" -f2- | xargs)
-gsutil cp -r nyc-open-data-project-main/dags/ $DAGS_FOLDER
-
-#pause delta load dag and trigger full load dag
-gcloud composer environments run $NAME \
-    dags pause delta_load_evictions_pipeline
-
-gcloud composer environments run $NAME \
-    dags trigger full_load_evictions_pipeline
+gsutil cp -r nyc-open-data-project-main/dags/ ${DAGS_FOLDER::-4}
