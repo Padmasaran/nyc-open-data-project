@@ -41,11 +41,12 @@ GCP setup can be performed by executing the gcloud-setup.sh script in GCP CLI. S
 - Setup Cloud composer (managed Apache Airflow) and required environmental variables
 - Copy the scripts from this repo to the Cloud Composer dags folder
 
-Once done, GCP environment should be ready to analyse the evictions data ingested and extend this model to other SODA API based data.
+Replace the PROJECT_ID parameter with the your GCP project ID. Once done, GCP environment should be ready to analyse the evictions data ingested and extend this model to other SODA API based data.
 
 #### Infrastructure
 This solution uses serverless and managed offerings of Google Cloud Platform as below:
 - Cloud Dataflow - serverless data processing framework used for data ingestion
-- Cloud Composer - Managed Apache Airflow instance used for data orchestration
-- BigQuery - Serverless data warehousing solution with pay-per-use compute
+- Cloud Composer - managed Apache Airflow instance used for data orchestration
+- Cloud Storage - serverless object storage
+- BigQuery - serverless data warehousing solution with pay-per-use compute
 - Google Data Studio - self service BI tool for data visualization
