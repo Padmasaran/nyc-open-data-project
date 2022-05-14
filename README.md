@@ -5,7 +5,7 @@ Goal is to setup a data pipeline to pull data from NYC Socrata Open Data API (SO
 For all questions and suggestions, please reach out to me at: padmasaransathiakumar@gmail.com
 
 #### Architecture
-![NYC Open - Architecture](https://user-images.githubusercontent.com/56570539/168418894-b46b83d2-29c0-40d9-be07-cc42663d9419.png)
+![NYC Open - Architecture](https://user-images.githubusercontent.com/56570539/168430409-e17469bc-e723-492c-a058-b9eeac41d8d5.png)
 
 #### Process Flow
 ##### Ingestion (Extract): 
