@@ -2,7 +2,7 @@
 
 Goal is to setup a data pipeline to pull data from NYC Socrata Open API (SoDA) and present the analytics via a presentation layer. This architecture is hosted on Google Cloud Platform (GCP) based on open-source frameworks like Apache Airflow and Apache Beam.
 
-For all questions and suggestions, please reach out to me at: saransathi.97@gmail.com
+For all questions and suggestions, please reach out to me at: padmasaransathiakumar@gmail.com
 
 #### Architecture
 ![NYC Open - Architecture](https://user-images.githubusercontent.com/56570539/168418894-b46b83d2-29c0-40d9-be07-cc42663d9419.png)
