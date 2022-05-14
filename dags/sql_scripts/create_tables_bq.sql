@@ -36,27 +36,27 @@ CREATE OR REPLACE TABLE {{ var.value.project }}.eviction_analysis.stg_census_dat
 
 CREATE OR REPLACE TABLE {{ var.value.project }}.eviction_analysis.evictions
 (
+  court_index_number STRING,
+  docket_number INT64,
+  ejectment STRING,  
+  eviction_possession STRING,
+  eviction_zip INT64,
+  eviction_apt_num STRING,
+  eviction_address STRING
   bbl INT64,
   census_tract INT64,
-  council_district INT64,
-  latitude FLOAT64,
-  eviction_possession STRING,
   nta STRUCT <
     nta STRING,
     population INT64
     >,
-  docket_number INT64,
-  ejectment STRING,
-  longitude FLOAT64,
-  court_index_number STRING,
+  council_district INT64,
   borough STRING,
-  residential_commercial_ind STRING,
-  marshal_last_name STRING,
+  community_board INT64,  
   bin INT64,
-  community_board INT64,
-  marshal_first_name STRING,
+  residential_commercial_ind STRING,
+  latitude FLOAT64,  
+  longitude FLOAT64,
+  marshal_first_name STRING,  
+  marshal_last_name STRING,
   executed_date TIMESTAMP,
-  eviction_zip INT64,
-  eviction_apt_num STRING,
-  eviction_address STRING
 );
