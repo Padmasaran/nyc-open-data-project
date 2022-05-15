@@ -7,6 +7,9 @@ For all questions and suggestions, please reach out to me at: padmasaransathiaku
 #### Architecture
 ![NYC Open - Architecture](https://user-images.githubusercontent.com/56570539/168430409-e17469bc-e723-492c-a058-b9eeac41d8d5.png)
 
+#### Data Studio Report
+![Data Studio Report](https://user-images.githubusercontent.com/56570539/168482877-9e0d948d-7ab4-4efb-88ef-0dd386fc6290.png)
+
 #### Process Flow
 ##### Ingestion (Extract): 
 Data is fetched from SODA API using Apache Beam pipelines on dataflow runner. This setup allows for parallelization of the API pull with a separate thread for every 100000 records.
